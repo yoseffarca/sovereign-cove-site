@@ -36,6 +36,8 @@ for (const [path, p] of Object.entries(pages)) {
   const out = path === "/" ? join(dist, "index.html") : join(dist, `${path.slice(1)}.html`);
   mkdirSync(dirname(out), { recursive: true });
   writeFileSync(out, html);
+  // Experimental: extensionless copy, to see whether Wix serves /about from "about".
+  if (path !== "/") writeFileSync(join(dist, path.slice(1)), html);
   console.log("prerendered", path);
 }
 
