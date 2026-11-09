@@ -32,7 +32,8 @@ if (!block.test(template)) throw new Error("index.html is missing the <!--route-
 
 for (const [path, p] of Object.entries(pages)) {
   const html = template.replace(block, headTags(path, p));
-  const out = path === "/" ? join(dist, "index.html") : join(dist, path.slice(1), "index.html");
+  // Wix hosting serves /about from about.html (it strips trailing slashes).
+  const out = path === "/" ? join(dist, "index.html") : join(dist, `${path.slice(1)}.html`);
   mkdirSync(dirname(out), { recursive: true });
   writeFileSync(out, html);
   console.log("prerendered", path);
