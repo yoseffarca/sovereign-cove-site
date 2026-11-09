@@ -1,4 +1,4 @@
-// Site imagery, hosted in the Sovereign Cove H site's Wix Media Manager.
+// Site imagery and video, hosted in the Sovereign Cove H site's Wix Media Manager.
 const wix = (file: string) => `https://static.wixstatic.com/media/${file}`;
 
 export const media = {
@@ -12,6 +12,5 @@ export const media = {
   discoverSecurity: wix("1119da_4cd554d12de649589652558ca523cd01~mv2.png"),
   discoverService: wix("1119da_ff4501485bd1441ea3093e80cc263c4a~mv2.png"),
   queriesFiller: wix("1119da_cca26600e4da4047a08875dab254b496~mv2.jpg"),
-  homeVideo:
-    "https://res.cloudinary.com/dwfqgllc4/video/upload/v1785487502/Orchard_Updated_oqlliy.mp4",
+  homeVideo: "https://video.wixstatic.com/video/1119da_9077447eb54a4d17903e96f49635acca/file",
 };

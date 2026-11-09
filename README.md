@@ -35,7 +35,7 @@ npm run build     # outputs ./dist
 | `src/routes/` | One file per page (`/`, `/about`, `/discover`, `/queries`, `/events/*`) |
 | `src/components/` | Header/nav, footer, shared event-page layout |
 | `src/content/pages.json` | Page titles, descriptions and share images |
-| `src/lib/media.ts` | Image/video URLs (images live in the site's Wix Media Manager) |
+| `src/lib/media.ts` | Image/video URLs (all hosted in the site's Wix Media Manager) |
 | `src/styles.css` | Theme colors, fonts, reveal animations |
 | `public/images/` | Event-page hero images |
 | `scripts/prerender-routes.mjs` | Writes a static HTML file per page (about.html, …) with its SEO tags |
