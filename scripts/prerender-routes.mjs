@@ -1,5 +1,5 @@
-// After `vite build`: give every route its own index.html (so deep links such
-// as /about load directly on static hosting) with that page's <head> tags
+// After `vite build`: give every route its own HTML file (about.html, served at
+// /about by server/entry.mjs) with that page's <head> tags
 // baked in for search engines and link previews. Also writes 404.html.
 import { mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { dirname, join } from "node:path";
@@ -36,8 +36,6 @@ for (const [path, p] of Object.entries(pages)) {
   const out = path === "/" ? join(dist, "index.html") : join(dist, `${path.slice(1)}.html`);
   mkdirSync(dirname(out), { recursive: true });
   writeFileSync(out, html);
-  // Experimental: extensionless copy, to see whether Wix serves /about from "about".
-  if (path !== "/") writeFileSync(join(dist, path.slice(1)), html);
   console.log("prerendered", path);
 }
 
