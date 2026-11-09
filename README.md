@@ -11,7 +11,7 @@ Wix Headless (site **The Sovereign Cove H**).
 Every push to `main` runs `.github/workflows/deploy-to-wix.yml`, which builds the
 site and runs `wix release` against the site set in `wix.config.json`.
 
-**One-time setup:** the workflow needs a Wix API key.
+**One-time setup (done):** the workflow uses a Wix API key stored as the `WIX_API_KEY` repository secret. To replace it:
 
 1. Create a key at https://manage.wix.com/account/api-keys — give it access to
    *The Sovereign Cove H* and the permissions needed to manage headless sites
@@ -38,7 +38,8 @@ npm run build     # outputs ./dist
 | `src/lib/media.ts` | Image/video URLs (images live in the site's Wix Media Manager) |
 | `src/styles.css` | Theme colors, fonts, reveal animations |
 | `public/images/` | Event-page hero images |
-| `scripts/prerender-routes.mjs` | Writes a static HTML file per page so deep links work |
+| `scripts/prerender-routes.mjs` | Writes a static HTML file per page (about.html, …) with its SEO tags |
+| `server/entry.mjs` | Small edge worker so clean links like /about load the right page |
 | `wix.config.json` | Links this repo to the Wix site |
 
 Stack: Vite, React 19, TanStack Router, Tailwind CSS v4.
