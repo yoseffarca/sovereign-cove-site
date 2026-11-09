@@ -1,0 +1,53 @@
+{
+  "/": {
+    "title": "The Sovereign Cove — By Invitation, Tavernier, Florida",
+    "description": "A private beachfront sanctuary in Tavernier, Florida. Access to The Sovereign Cove is extended by invitation to a select few.",
+    "ogTitle": "The Sovereign Cove — By Invitation Only",
+    "ogDescription": "A private beachfront sanctuary in the Florida Keys, reserved for a discerning few.",
+    "ogImage": "https://static.wixstatic.com/media/1119da_4f69064214d444ee8cabe989069f1e16~mv2.png"
+  },
+  "/about": {
+    "title": "About — By Invitation Only",
+    "description": "A private sanctuary in the Florida Keys, reserved for the few. Location, experience, and exclusivity at The Sovereign Cove.",
+    "ogTitle": "About — The Sovereign Cove",
+    "ogDescription": "A private beachfront sanctuary in the Florida Keys, accessible by invitation alone.",
+    "ogImage": "https://static.wixstatic.com/media/1119da_3a0463ff2afd46a69771fe27dc16b1eb~mv2.png"
+  },
+  "/discover": {
+    "title": "Discover — The Sovereign Cove",
+    "description": "Luxury, security, and service composed for the few. The Sovereign Cove — a private estate in Tavernier, Florida, accessible by invitation.",
+    "ogTitle": "Discover — The Sovereign Cove",
+    "ogDescription": "A private beachfront sanctuary in the Florida Keys, reserved for one party at a time.",
+    "ogImage": "https://static.wixstatic.com/media/1119da_3c3c278c8e96454a967270c821cd367f~mv2.png"
+  },
+  "/queries": {
+    "title": "Inquiries — The Sovereign Cove",
+    "description": "Private inquiries for The Sovereign Cove. Contact our concierge directly by email.",
+    "ogTitle": "Inquiries — The Sovereign Cove",
+    "ogDescription": "Private inquiries for The Sovereign Cove. Contact our concierge directly by email."
+  },
+  "/events/weddings": {
+    "title": "Weddings — The Sovereign Cove",
+    "description": "Private beachfront weddings at The Sovereign Cove — an invitation-only estate in the Florida Keys, held in reserve for a single celebration.",
+    "ogTitle": "Weddings — The Sovereign Cove",
+    "ogDescription": "A wedding composed in privacy — the entire estate held for one family, one occasion.",
+    "ogImage": "/images/events-weddings.jpg",
+    "largeCard": true
+  },
+  "/events/family-celebrations": {
+    "title": "Family Celebrations — The Sovereign Cove",
+    "description": "Milestone family celebrations — Bar and Bat Mitzvahs, anniversaries, and private gatherings — held in confidence at The Sovereign Cove.",
+    "ogTitle": "Family Celebrations — The Sovereign Cove",
+    "ogDescription": "Milestone moments observed in privacy, upon a private beachfront estate in the Florida Keys.",
+    "ogImage": "/images/events-family.jpg",
+    "largeCard": true
+  },
+  "/events/corporate": {
+    "title": "Corporate Events — The Sovereign Cove",
+    "description": "Executive gatherings, private retreats, and off-record convenings at The Sovereign Cove — a discreet beachfront estate in the Florida Keys.",
+    "ogTitle": "Corporate Events — The Sovereign Cove",
+    "ogDescription": "A private estate held in reserve for executive gatherings and off-record convenings.",
+    "ogImage": "/images/events-corporate.jpg",
+    "largeCard": true
+  }
+}

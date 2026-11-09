@@ -1,0 +1,44 @@
+name: Deploy to Wix
+
+# Every push to main builds the site and releases it to the
+# "The Sovereign Cove H" Wix Headless site (see wix.config.json).
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: wix-release
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    env:
+      WIX_API_KEY: ${{ secrets.WIX_API_KEY }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install
+        run: npm ci
+
+      - name: Build
+        run: npm run build
+
+      - name: Check Wix API key
+        run: |
+          if [ -z "$WIX_API_KEY" ]; then
+            echo "::error::Add a WIX_API_KEY repository secret (Settings → Secrets and variables → Actions) to enable deploys."
+            exit 1
+          fi
+
+      - name: Log in to Wix
+        run: npx wix login --api-key "$WIX_API_KEY"
+
+      - name: Release to Wix
+        run: npx wix release --comment "${GITHUB_SHA::7} $(git log -1 --pretty=%s | cut -c1-200)"

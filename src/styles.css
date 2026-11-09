@@ -1,0 +1,207 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --font-sans: "Inter", system-ui, sans-serif;
+  --font-serif: "Instrument Serif", serif;
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-sand: var(--sand);
+  --color-sea: var(--sea);
+  --color-deep: var(--deep);
+
+  --radius-sm: calc(var(--radius) - 2px);
+  --radius-md: var(--radius);
+  --radius-lg: calc(var(--radius) + 4px);
+}
+
+:root {
+  --radius: 0.25rem;
+  --background: lab(98.2861% -0.0120401 1.90748);
+  --foreground: lab(13.1967% -6.30264 -2.61433);
+  --card: lab(98.2861% -0.0120401 1.90748);
+  --card-foreground: lab(13.1967% -6.30264 -2.61433);
+  --popover: lab(98.2861% -0.0120401 1.90748);
+  --popover-foreground: lab(13.1967% -6.30264 -2.61433);
+  --primary: lab(36.8367% -19.6149 -5.93308);
+  --primary-foreground: lab(97.7061% -0.0120103 1.9075);
+  --secondary: lab(93.0912% -0.00810623 3.82546);
+  --secondary-foreground: lab(18.9972% -6.30853 -2.62203);
+  --muted: lab(94.2412% -0.0115335 3.05697);
+  --muted-foreground: lab(42.1983% -6.31967 -2.6382);
+  --accent: lab(60.424% -30.3419 -6.07196);
+  --accent-foreground: lab(97.7061% -0.0120103 1.9075);
+  --destructive: lab(48.4493% 77.4328 61.5452);
+  --destructive-foreground: lab(97.7061% -0.0120103 1.9075);
+  --border: lab(88.4511% -0.00676513 3.82638);
+  --input: lab(88.4511% -0.00676513 3.82638);
+  --ring: lab(60.424% -30.3419 -6.07196);
+  --sand: lab(91.9161% 2.29037 9.34007);
+  --sea: lab(75.4369% -29.4106 -8.92956);
+  --deep: lab(21.4279% -11.2104 -7.47271);
+}
+
+.dark {
+  --background: lab(5.38635% -4.06354 -3.18696);
+  --foreground: lab(94.2512% -0.00840426 3.82525);
+  --card: lab(9.67691% -5.67057 -3.76583);
+  --card-foreground: lab(94.2512% -0.00840426 3.82525);
+  --popover: lab(9.67691% -5.67057 -3.76583);
+  --popover-foreground: lab(94.2512% -0.00840426 3.82525);
+  --primary: lab(71.9115% -26.8815 -5.42834);
+  --primary-foreground: lab(7.37325% -5.05925 -3.72815);
+  --secondary: lab(16.6386% -5.70594 -3.78413);
+  --secondary-foreground: lab(94.2512% -0.00840426 3.82525);
+  --muted: lab(16.6386% -5.70594 -3.78413);
+  --muted-foreground: lab(65.3987% -6.32417 -2.64546);
+  --accent: lab(66.2245% -30.3102 -6.08265);
+  --accent-foreground: lab(7.37325% -5.05925 -3.72815);
+  --border: lab(100% 0 0 / 0.12);
+  --input: lab(100% 0 0 / 0.15);
+  --ring: lab(66.2245% -30.3102 -6.08265);
+}
+
+@layer base {
+  * {
+    border-color: var(--border);
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-sans);
+    font-weight: 300;
+    letter-spacing: 0.01em;
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-serif);
+    font-weight: 400;
+    letter-spacing: -0.01em;
+  }
+}
+
+/* ---------- Motion ---------- */
+@keyframes reveal-up {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes reveal-fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes slow-zoom {
+  from {
+    transform: scale(1.08);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+@keyframes letter-spread {
+  from {
+    letter-spacing: 0.05em;
+    opacity: 0;
+  }
+  to {
+    letter-spacing: 0.45em;
+    opacity: 1;
+  }
+}
+
+.reveal-up {
+  animation: reveal-up 1.2s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+.reveal-fade {
+  animation: reveal-fade 1.6s ease-out both;
+}
+.slow-zoom {
+  animation: slow-zoom 8s ease-out both;
+}
+.letter-spread {
+  animation: letter-spread 2s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+.delay-200 {
+  animation-delay: 0.2s;
+}
+.delay-400 {
+  animation-delay: 0.4s;
+}
+.delay-600 {
+  animation-delay: 0.6s;
+}
+.delay-800 {
+  animation-delay: 0.8s;
+}
+.delay-1000 {
+  animation-delay: 1s;
+}
+
+/* Scroll-triggered reveal */
+.in-view {
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity 1.2s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.in-view.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Underline-on-hover links */
+.nav-link {
+  position: relative;
+  transition: color 0.4s;
+}
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 100%;
+  height: 1px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.nav-link:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
