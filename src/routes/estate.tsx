@@ -39,7 +39,7 @@ const pillars = [
 const gallery = [
   { image: media.aboutLocation, alt: "Oceanfront putting green framed by palms overlooking the turquoise sea at The Sovereign Cove" },
   { image: media.aboutExclusivity, alt: "Private helicopter arriving at The Sovereign Cove's beachfront estate" },
-  { image: media.discoverHero, alt: "Two turquoise Adirondack chairs facing the calm Florida Keys ocean" },
+  { image: media.heroBeach, alt: "The beach at The Sovereign Cove seen from above" },
   { image: media.aboutExperience, alt: "Aerial view of the turquoise cove and surrounding mangroves from above" },
 ];
 
@@ -54,7 +54,11 @@ function Estate() {
       <SiteNav />
 
       <section className="hero tall">
-        <img src={b.aerial.image} alt={b.aerial.alt} />
+        <img
+          src={media.discoverHero}
+          alt="Two turquoise Adirondack chairs facing the calm Florida Keys ocean at The Sovereign Cove"
+          className="brightness-125"
+        />
         <div className="shade" />
         <div className="inner">
           <h1>The Estate</h1>

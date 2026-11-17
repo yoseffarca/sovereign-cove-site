@@ -120,7 +120,3 @@ export const firepit = {
   image: img("firepit"),
   alt: "Fire pit ringed by wooden chairs on the lawn at night",
 };
-export const aerial = {
-  image: img("aerial"),
-  alt: "The estate from the air: wooded shoreline, the boathouse and dock on turquoise water",
-};
