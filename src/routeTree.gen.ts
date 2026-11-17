@@ -10,116 +10,63 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
-import { Route as AboutRouteImport } from './routes/about'
-import { Route as DiscoverRouteImport } from './routes/discover'
-import { Route as QueriesRouteImport } from './routes/queries'
-import { Route as EventsCorporateRouteImport } from './routes/events.corporate'
-import { Route as EventsFamilyCelebrationsRouteImport } from './routes/events.family-celebrations'
-import { Route as EventsWeddingsRouteImport } from './routes/events.weddings'
+import { Route as AvailabilityRouteImport } from './routes/availability'
+import { Route as EstateRouteImport } from './routes/estate'
+import { Route as EventsRouteImport } from './routes/events'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const AboutRoute = AboutRouteImport.update({
-  id: '/about',
-  path: '/about',
+const AvailabilityRoute = AvailabilityRouteImport.update({
+  id: '/availability',
+  path: '/availability',
   getParentRoute: () => rootRouteImport,
 } as any)
-const DiscoverRoute = DiscoverRouteImport.update({
-  id: '/discover',
-  path: '/discover',
+const EstateRoute = EstateRouteImport.update({
+  id: '/estate',
+  path: '/estate',
   getParentRoute: () => rootRouteImport,
 } as any)
-const QueriesRoute = QueriesRouteImport.update({
-  id: '/queries',
-  path: '/queries',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const EventsCorporateRoute = EventsCorporateRouteImport.update({
-  id: '/events/corporate',
-  path: '/events/corporate',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const EventsFamilyCelebrationsRoute =
-  EventsFamilyCelebrationsRouteImport.update({
-    id: '/events/family-celebrations',
-    path: '/events/family-celebrations',
-    getParentRoute: () => rootRouteImport,
-  } as any)
-const EventsWeddingsRoute = EventsWeddingsRouteImport.update({
-  id: '/events/weddings',
-  path: '/events/weddings',
+const EventsRoute = EventsRouteImport.update({
+  id: '/events',
+  path: '/events',
   getParentRoute: () => rootRouteImport,
 } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/about': typeof AboutRoute
-  '/discover': typeof DiscoverRoute
-  '/queries': typeof QueriesRoute
-  '/events/corporate': typeof EventsCorporateRoute
-  '/events/family-celebrations': typeof EventsFamilyCelebrationsRoute
-  '/events/weddings': typeof EventsWeddingsRoute
+  '/availability': typeof AvailabilityRoute
+  '/estate': typeof EstateRoute
+  '/events': typeof EventsRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/about': typeof AboutRoute
-  '/discover': typeof DiscoverRoute
-  '/queries': typeof QueriesRoute
-  '/events/corporate': typeof EventsCorporateRoute
-  '/events/family-celebrations': typeof EventsFamilyCelebrationsRoute
-  '/events/weddings': typeof EventsWeddingsRoute
+  '/availability': typeof AvailabilityRoute
+  '/estate': typeof EstateRoute
+  '/events': typeof EventsRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/about': typeof AboutRoute
-  '/discover': typeof DiscoverRoute
-  '/queries': typeof QueriesRoute
-  '/events/corporate': typeof EventsCorporateRoute
-  '/events/family-celebrations': typeof EventsFamilyCelebrationsRoute
-  '/events/weddings': typeof EventsWeddingsRoute
+  '/availability': typeof AvailabilityRoute
+  '/estate': typeof EstateRoute
+  '/events': typeof EventsRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths:
-    | '/'
-    | '/about'
-    | '/discover'
-    | '/queries'
-    | '/events/corporate'
-    | '/events/family-celebrations'
-    | '/events/weddings'
+  fullPaths: '/' | '/availability' | '/estate' | '/events'
   fileRoutesByTo: FileRoutesByTo
-  to:
-    | '/'
-    | '/about'
-    | '/discover'
-    | '/queries'
-    | '/events/corporate'
-    | '/events/family-celebrations'
-    | '/events/weddings'
-  id:
-    | '__root__'
-    | '/'
-    | '/about'
-    | '/discover'
-    | '/queries'
-    | '/events/corporate'
-    | '/events/family-celebrations'
-    | '/events/weddings'
+  to: '/' | '/availability' | '/estate' | '/events'
+  id: '__root__' | '/' | '/availability' | '/estate' | '/events'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  AboutRoute: typeof AboutRoute
-  DiscoverRoute: typeof DiscoverRoute
-  QueriesRoute: typeof QueriesRoute
-  EventsCorporateRoute: typeof EventsCorporateRoute
-  EventsFamilyCelebrationsRoute: typeof EventsFamilyCelebrationsRoute
-  EventsWeddingsRoute: typeof EventsWeddingsRoute
+  AvailabilityRoute: typeof AvailabilityRoute
+  EstateRoute: typeof EstateRoute
+  EventsRoute: typeof EventsRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -131,46 +78,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/about': {
-      id: '/about'
-      path: '/about'
-      fullPath: '/about'
-      preLoaderRoute: typeof AboutRouteImport
+    '/availability': {
+      id: '/availability'
+      path: '/availability'
+      fullPath: '/availability'
+      preLoaderRoute: typeof AvailabilityRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/discover': {
-      id: '/discover'
-      path: '/discover'
-      fullPath: '/discover'
-      preLoaderRoute: typeof DiscoverRouteImport
+    '/estate': {
+      id: '/estate'
+      path: '/estate'
+      fullPath: '/estate'
+      preLoaderRoute: typeof EstateRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/queries': {
-      id: '/queries'
-      path: '/queries'
-      fullPath: '/queries'
-      preLoaderRoute: typeof QueriesRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/events/corporate': {
-      id: '/events/corporate'
-      path: '/events/corporate'
-      fullPath: '/events/corporate'
-      preLoaderRoute: typeof EventsCorporateRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/events/family-celebrations': {
-      id: '/events/family-celebrations'
-      path: '/events/family-celebrations'
-      fullPath: '/events/family-celebrations'
-      preLoaderRoute: typeof EventsFamilyCelebrationsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/events/weddings': {
-      id: '/events/weddings'
-      path: '/events/weddings'
-      fullPath: '/events/weddings'
-      preLoaderRoute: typeof EventsWeddingsRouteImport
+    '/events': {
+      id: '/events'
+      path: '/events'
+      fullPath: '/events'
+      preLoaderRoute: typeof EventsRouteImport
       parentRoute: typeof rootRouteImport
     }
   }
@@ -178,12 +104,9 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  AboutRoute: AboutRoute,
-  DiscoverRoute: DiscoverRoute,
-  QueriesRoute: QueriesRoute,
-  EventsCorporateRoute: EventsCorporateRoute,
-  EventsFamilyCelebrationsRoute: EventsFamilyCelebrationsRoute,
-  EventsWeddingsRoute: EventsWeddingsRoute,
+  AvailabilityRoute: AvailabilityRoute,
+  EstateRoute: EstateRoute,
+  EventsRoute: EventsRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

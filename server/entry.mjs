@@ -3,6 +3,15 @@
 // the matching prerendered page (about.html), so clean URLs and deep links work.
 const INTERNAL = "x-sc-page";
 
+const MOVED = {
+  "/about": "/estate",
+  "/discover": "/estate",
+  "/queries": "/availability",
+  "/events/weddings": "/events",
+  "/events/family-celebrations": "/events",
+  "/events/corporate": "/events",
+};
+
 export default {
   async fetch(request, env) {
     // A lookup we made ourselves found no static file: stop here (no loops).
@@ -10,6 +19,10 @@ export default {
 
     const url = new URL(request.url);
     const path = url.pathname.replace(/\/+$/, "") || "/";
+
+    // Addresses from the earlier version of the site lead to their new pages.
+    const moved = MOVED[path.toLowerCase()];
+    if (moved) return Response.redirect(new URL(moved, url).toString(), 301);
     const target = path === "/" ? "/index.html" : /\.[a-z0-9]+$/i.test(path) ? path : `${path}.html`;
 
     const load = (p) => {

@@ -32,14 +32,16 @@ npm run build     # outputs ./dist
 
 | Path | What it is |
 | --- | --- |
-| `src/routes/` | One file per page (`/`, `/about`, `/discover`, `/queries`, `/events/*`) |
-| `src/components/` | Header/nav, footer, shared event-page layout |
+| `src/routes/` | One file per page (`/`, `/estate`, `/events`, `/availability`) |
+| `src/components/` | Header/nav and footer |
+| `src/content/events.ts` | Copy for the event types, shared by Home and Events |
+| `src/lib/availability.ts` | Sends the Check Availability form to Wix Forms (form "Check Availability") |
 | `src/content/pages.json` | Page titles, descriptions and share images |
 | `src/lib/media.ts` | Image/video URLs (all hosted in the site's Wix Media Manager) |
 | `src/styles.css` | Theme colors, fonts, reveal animations |
-| `public/images/` | Event-page hero images |
+| `public/images/` | Event photos and the logo |
 | `scripts/prerender-routes.mjs` | Writes a static HTML file per page (about.html, …) with its SEO tags |
-| `server/entry.mjs` | Small edge worker so clean links like /about load the right page |
+| `server/entry.mjs` | Small edge worker so clean links like /estate load the right page; redirects the old addresses |
 | `wix.config.json` | Links this repo to the Wix site |
 
 Stack: Vite, React 19, TanStack Router, Tailwind CSS v4.
