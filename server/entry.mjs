@@ -22,7 +22,7 @@ export default {
 
     // Addresses from the earlier version of the site lead to their new pages.
     const moved = MOVED[path.toLowerCase()];
-    if (moved) return Response.redirect(new URL(moved, url).toString(), 301);
+    if (moved) return new Response(null, { status: 301, headers: { location: moved } });
     const target = path === "/" ? "/index.html" : /\.[a-z0-9]+$/i.test(path) ? path : `${path}.html`;
 
     const load = (p) => {
