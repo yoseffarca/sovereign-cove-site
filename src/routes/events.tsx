@@ -3,9 +3,10 @@ import { Link, createFileRoute } from "@tanstack/react-router";
 import { SiteNav } from "../components/SiteNav";
 import { SiteFooter } from "../components/SiteFooter";
 import { useReveal } from "../hooks/use-reveal";
-import { media } from "../lib/media";
 import { headFor } from "../lib/seo";
 import { gatherings, mitzvahs, weddings, type Occasion } from "../content/events";
+import { Concierge, Feature, Wide } from "../components/Blocks";
+import { gardenDinner, oldTrees, privateDining, suite } from "../content/brochure";
 
 export const Route = createFileRoute("/events")({
   head: headFor("/events"),
@@ -33,7 +34,7 @@ function Events() {
       <SiteNav />
 
       <section className="hero tall">
-        <img src={media.heroBeach} alt="The private beach at The Sovereign Cove" />
+        <img src={oldTrees.image} alt={oldTrees.alt} />
         <div className="shade" />
         <div className="inner">
           <p className="kicker">Events</p>
@@ -78,6 +79,8 @@ function Events() {
         </article>
       </section>
 
+      <Feature block={gardenDinner} title={oldTrees.line} line={gardenDinner.line} />
+
       <section className="band">
         <div className="wrap">
           <p className="kicker in-view">Milestone Celebrations</p>
@@ -104,6 +107,11 @@ function Events() {
         </article>
       </section>
 
+      <div className="story tight">
+        <Wide block={privateDining} />
+        <Wide block={suite} kicker="The Houses" />
+      </div>
+
       <section className="closing plain">
         <div className="wrap">
           <p className="kicker in-view">— Your Date —</p>
@@ -111,6 +119,7 @@ function Events() {
           <Link to="/availability" className="btn solid in-view">
             Check Availability
           </Link>
+          <Concierge />
         </div>
       </section>
 

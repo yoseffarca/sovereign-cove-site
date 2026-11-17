@@ -5,18 +5,23 @@ import { SiteFooter } from "../components/SiteFooter";
 import { useReveal } from "../hooks/use-reveal";
 import { media } from "../lib/media";
 import { headFor } from "../lib/seo";
-import { gatherings, mitzvahs, weddings, type Occasion } from "../content/events";
+import { gatherings, mitzvahs, weddings } from "../content/events";
+import { arrival, cigarBar, gardenDinner, houses, onTheWater } from "../content/brochure";
+import { FirepitClosing } from "../components/Blocks";
 
 export const Route = createFileRoute("/")({
   head: headFor("/"),
   component: Home,
 });
 
-const layers: { side: "left" | "right"; title: string; occasion: Occasion; copy: typeof weddings }[] = [
-  { side: "left", title: "Weddings", occasion: "Wedding", copy: weddings },
-  { side: "right", title: "Bar & Bat Mitzvahs", occasion: "Bar or Bat Mitzvah", copy: mitzvahs },
-  { side: "left", title: "Private Gatherings", occasion: "Corporate or private gathering", copy: gatherings },
-];
+// Event types lead the page. Their full copy lives on the Events page.
+const layers = [
+  { side: "left", title: "Weddings", line: "The entire estate, yours alone.", copy: weddings },
+  { side: "right", title: "Bar & Bat Mitzvahs", line: mitzvahs.lead, copy: mitzvahs },
+  { side: "left", title: "Private Gatherings", line: gatherings.lead, copy: gatherings },
+] as const;
+
+const chapters = [arrival, gardenDinner, onTheWater, houses, cigarBar];
 
 function Home() {
   useReveal();
@@ -79,12 +84,17 @@ function Home() {
         </video>
         <div className="shade" />
         <div className="inner">
-          <p className="kicker">Tavernier · Florida Keys</p>
+          <p className="kicker">Weddings · Bar &amp; Bat Mitzvahs · Private Events</p>
           <h1>The Sovereign Cove</h1>
-          <p className="tag">A private estate for one celebration at a time.</p>
-          <Link to="/availability" className="btn light cta">
-            Check Availability
-          </Link>
+          <p className="tag">A private estate in the Upper Florida Keys, yours for the duration of the event.</p>
+          <div className="cta ctas">
+            <Link to="/events" className="btn light">
+              Explore Events
+            </Link>
+            <Link to="/availability" className="btn light">
+              Check Availability
+            </Link>
+          </div>
         </div>
         <button type="button" className="mute" onClick={toggleMute} aria-label={muted ? "Unmute video" : "Mute video"}>
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -106,18 +116,11 @@ function Home() {
 
       <section className="statement">
         <div className="wrap">
-          <p className="kicker in-view">— One Occasion, Entirely Yours —</p>
-          <h2 className="in-view">
-            Fifteen private acres on the water in the Florida Keys, given over entirely to your family and your guests.
-          </h2>
+          <p className="kicker in-view">— Events —</p>
+          <h2 className="in-view">One family. One occasion. The entire estate.</h2>
           <p className="sub in-view">
-            Weddings, Bar and Bat Mitzvahs, and milestone celebrations. Never shared, never repeated.
+            Weddings, Bar and Bat Mitzvahs, milestone celebrations, and private gatherings in the Upper Florida Keys.
           </p>
-          <div className="cta in-view">
-            <Link to="/events" className="text-link">
-              <span className="nav-link">Explore Events</span>
-            </Link>
-          </div>
         </div>
       </section>
 
@@ -127,16 +130,41 @@ function Home() {
             <img src={l.copy.image} alt={l.copy.alt} />
             <div className="shade" />
             <div className="panel">
+              <p className="kicker">Events</p>
               <h3>{l.title}</h3>
               <div className="rule" />
-              <p className="lead">{l.copy.lead}</p>
-              <p className="body">{l.copy.body}</p>
-              <Link to="/availability" search={{ occasion: l.occasion }} className="text-link">
-                <span className="nav-link">Check Availability</span>
+              <p className="lead">{l.line}</p>
+              <Link to="/events" className="text-link">
+                <span className="nav-link">Explore</span>
               </Link>
             </div>
           </div>
         ))}
+      </section>
+
+      <section className="statement cover">
+        <div className="wrap">
+          <p className="kicker in-view">— The Estate —</p>
+          <h2 className="in-view">A cove of your own.</h2>
+          <p className="sub in-view">
+            From the first arrival to the last guest, the whole of the estate is given to your event.
+          </p>
+        </div>
+      </section>
+
+      <section className="chapters-wrap">
+        <div className="chapters">
+          {chapters.map((c) => (
+            <Link key={c.title} to="/estate" className="chapter in-view">
+              <div className="pic">
+                <img src={c.image} alt={c.alt} loading="lazy" />
+              </div>
+              <p className="kicker">{c.kicker}</p>
+              <h3>{c.title}</h3>
+              <p className="line">{c.line}</p>
+            </Link>
+          ))}
+        </div>
       </section>
 
       <section className="facts">
@@ -168,17 +196,7 @@ function Home() {
         </div>
       </section>
 
-      <section className="closing">
-        <img src={media.heroBeach} alt="The beach at The Sovereign Cove" loading="lazy" />
-        <div className="shade" />
-        <div className="wrap">
-          <p className="kicker in-view">— The Estate —</p>
-          <h2 className="in-view">Seventeen minutes from Miami. A world away on arrival.</h2>
-          <Link to="/estate" className="btn light in-view">
-            Discover the Estate
-          </Link>
-        </div>
-      </section>
+      <FirepitClosing />
 
       <SiteFooter />
     </main>

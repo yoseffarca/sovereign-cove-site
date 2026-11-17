@@ -3,8 +3,8 @@ import { Link } from "@tanstack/react-router";
 import { Menu, X } from "lucide-react";
 
 const links = [
-  { to: "/estate", label: "The Estate" },
   { to: "/events", label: "Events" },
+  { to: "/estate", label: "The Estate" },
 ] as const;
 
 export function SiteNav() {

@@ -6,8 +6,8 @@ import { media } from "../lib/media";
 import { headFor } from "../lib/seo";
 import { occasions } from "../content/events";
 import { sendAvailabilityRequest, type AvailabilityRequest } from "../lib/availability";
+import { ADDRESS, CONCIERGE_EMAIL as EMAIL } from "../content/site";
 
-const EMAIL = "info@sovereigncove.com";
 
 export const Route = createFileRoute("/availability")({
   head: headFor("/availability"),
@@ -123,7 +123,7 @@ function Availability() {
                 </div>
                 {status === "failed" && (
                   <p className="error" role="alert">
-                    We could not send your request just now. Please try again, or write to us directly at{" "}
+                    We could not send your request just now. Please try again, or contact the concierge at{" "}
                     <a href={`mailto:${EMAIL}`}>{EMAIL}</a>.
                   </p>
                 )}
@@ -133,8 +133,9 @@ function Availability() {
                   </button>
                 </div>
                 <p className="or">
-                  Or write to our concierge directly
+                  Or contact the concierge at
                   <a href={`mailto:${EMAIL}`}>{EMAIL}</a>
+                  <span className="addr">{ADDRESS}, USA</span>
                 </p>
               </form>
             </>
