@@ -6,7 +6,7 @@ import { useReveal } from "../hooks/use-reveal";
 import { media } from "../lib/media";
 import { headFor } from "../lib/seo";
 import { gatherings, mitzvahs, weddings } from "../content/events";
-import { arrival, cigarBar, gardenDinner, houses, onTheWater } from "../content/brochure";
+import { approach, arrival, cigarBar, gardenDinner, houses, onTheWater } from "../content/brochure";
 import { FirepitClosing } from "../components/Blocks";
 
 export const Route = createFileRoute("/")({
@@ -21,7 +21,10 @@ const layers = [
   { side: "left", title: "Private Gatherings", line: gatherings.lead, copy: gatherings },
 ] as const;
 
-const chapters = [arrival, gardenDinner, onTheWater, houses, cigarBar];
+// The Cove card uses the tall photo of the same scene, so the whole cove,
+// the three jet skis and the wing fit the upright frame without being cut.
+const coveCard = { ...onTheWater, image: approach.image, alt: approach.alt };
+const chapters = [arrival, gardenDinner, coveCard, houses, cigarBar];
 
 function Home() {
   useReveal();
