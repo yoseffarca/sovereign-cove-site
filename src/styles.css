@@ -1152,3 +1152,36 @@
     height: auto;
   }
 }
+
+/* ---------- Phones: hero label on one line, footer set out line by line ---------- */
+@media (max-width: 700px) {
+  .hero .kicker {
+    font-size: min(11px, 2.6vw);
+    letter-spacing: 0.14em;
+    white-space: nowrap;
+  }
+  .hero .ctas .btn {
+    min-width: 236px;
+    text-align: center;
+  }
+  .site-footer {
+    padding: 52px 24px 56px;
+  }
+  .site-footer .row {
+    gap: 26px;
+    text-align: center;
+    letter-spacing: 0.22em;
+    line-height: 2;
+  }
+  .site-footer .pair-line span {
+    display: block;
+  }
+  .site-footer .pair-line .dot {
+    display: none;
+  }
+}
+.avail .or .addr span {
+  display: inline-block;
+  white-space: nowrap;
+  line-height: 2;
+}

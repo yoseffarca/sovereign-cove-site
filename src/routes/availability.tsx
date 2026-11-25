@@ -135,7 +135,9 @@ function Availability() {
                 <p className="or">
                   Or contact the concierge at
                   <a href={`mailto:${EMAIL}`}>{EMAIL}</a>
-                  <span className="addr">{ADDRESS}, USA</span>
+                  <span className="addr">
+                    <span>{ADDRESS.split(", ")[0]},</span> <span>{ADDRESS.split(", ").slice(1).join(", ")}, USA</span>
+                  </span>
                 </p>
               </form>
             </>
