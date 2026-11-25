@@ -52,7 +52,7 @@ function Events() {
       </section>
 
       <section className="splits">
-        <article className="split">
+        <article className="split natural">
           <div className="pic in-view">
             <img src={weddings.image} alt={weddings.alt} loading="lazy" />
           </div>
@@ -65,7 +65,7 @@ function Events() {
             <Check occasion="Wedding" />
           </div>
         </article>
-        <article className="split rev">
+        <article className="split natural rev">
           <div className="pic in-view">
             <img src={mitzvahs.image} alt={mitzvahs.alt} loading="lazy" />
           </div>
@@ -93,7 +93,7 @@ function Events() {
       </section>
 
       <section className="splits">
-        <article className="split">
+        <article className="split natural">
           <div className="pic in-view">
             <img src={gatherings.image} alt={gatherings.alt} loading="lazy" />
           </div>

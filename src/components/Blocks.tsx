@@ -22,7 +22,7 @@ export function Feature({ block, title, line }: { block: Block; title?: string; 
 export function Split({ block, reverse }: { block: Block; reverse?: boolean }) {
   return (
     <section className="splits">
-      <article className={`split ${reverse ? "rev" : ""}`}>
+      <article className={`split natural ${reverse ? "rev" : ""}`}>
         <div className="pic in-view">
           <img src={block.image} alt={block.alt} loading="lazy" />
         </div>

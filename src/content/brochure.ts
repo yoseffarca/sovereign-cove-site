@@ -1,7 +1,8 @@
 // Words and pictures from the Sovereign Cove events brochure.
 export type Block = { kicker: string; title: string; line: string; image: string; alt: string };
 
-const img = (name: string) => `/images/b-${name}.jpg`;
+// "?v" changes whenever the photo files are re-exported, so browsers fetch the new ones.
+const img = (name: string) => `/images/b-${name}.jpg?v=2`;
 
 export const cove: Block = {
   kicker: "The Estate",

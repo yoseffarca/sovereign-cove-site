@@ -1107,3 +1107,48 @@
   text-transform: uppercase;
   opacity: 0.8;
 }
+
+/* ---------- Phones and narrow screens: show photos whole, never cropped ---------- */
+@media (max-width: 1100px) {
+  .chapter .pic {
+    aspect-ratio: 4 / 3;
+  }
+}
+@media (max-width: 900px), (max-height: 680px) {
+  .layer > img {
+    height: auto;
+    min-height: 0;
+  }
+}
+@media (max-width: 767px) {
+  .split.natural .pic {
+    height: auto;
+  }
+  .split.natural .pic img {
+    height: auto;
+  }
+  .feature {
+    height: auto;
+    min-height: 0;
+  }
+  .feature > img {
+    position: static;
+    height: auto;
+  }
+  .feature .shade {
+    display: none;
+  }
+  .feature .txt {
+    position: static;
+    max-width: none;
+    padding: 36px 24px 48px;
+  }
+}
+@media (max-width: 560px) {
+  .chapter .pic {
+    aspect-ratio: auto;
+  }
+  .chapter .pic img {
+    height: auto;
+  }
+}
